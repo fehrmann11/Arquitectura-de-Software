@@ -1,2 +1,2 @@
-hola mi nombre es henry Fehrmann Cárcamo tengo 25 años
+hola mi nombre es henry Fehrmann Cárcamo tengo 25 años y unos par de meses
 y esto es un pequeño tutorial de git.
