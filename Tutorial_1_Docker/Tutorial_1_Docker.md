@@ -160,7 +160,7 @@ Cambiar el directorio a ejamples/nginx:
 
 
 ```
-docker run -d --name "test-nginx" -p 8080:80 -v $(pwd):/usr/share/nginx/html:ro nginx:latest  
+docker run -d --name "test-nginx" -p 8080:80 -v "$(pwd):/nginx/index.html:ro" nginx:latest  
 ```
 
 **Advertencia**: Este comando parece bastante pesado, pero es sólo un ejemplo para explicar volúmenes y variables env. En el 99% de los casos de la vida real, no iniciará los contenedores Docker manualmente, sino que utilizará servicios de orquestación (ilustraremos el uso de Docker-Compose en el ejemplo 4).
