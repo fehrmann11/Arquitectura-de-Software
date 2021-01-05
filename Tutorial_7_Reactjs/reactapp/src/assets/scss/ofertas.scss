@@ -1,0 +1,49 @@
+@import './paleta.scss';
+
+.ofertas{
+    display: grid;
+    justify-content:space-between;
+    grid-template-columns: 50% 50%;
+
+    &-Cards{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:flex-end;
+        text-align:center;
+        
+        &__card{
+            box-shadow: rgb(54, 54, 54) 0px 20px 30px -10px !important;
+            border-radius:5px !important;
+            margin: 5% !important;
+        }
+
+        &__img{
+        }
+    }
+    
+}
+
+@media (max-width: 760px) {
+    .ofertas{
+        display: grid;
+        justify-content:space-between;
+        grid-template-columns: 50% 50%;
+    
+        &-Cards{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:flex-end;
+            text-align:center;
+            
+            &__card{
+                box-shadow:none !important;
+                border-radius:5px !important;
+                margin: 5% !important;
+            }
+    
+            &__img{
+            }
+        }
+        
+    }
+}

@@ -16,7 +16,7 @@ public class ProductController {
 
     @GetMapping("/all")
     public List<Product> getAll(){
-        return productSe-rvice.getAll();
+        return productService.getAll();
     }
 
     @GetMapping("/{id}")
@@ -38,6 +38,4 @@ public class ProductController {
     public boolean delete(@PathVariable("id") int productId){
         return productService.delete(productId);
     }
-
-
 }
