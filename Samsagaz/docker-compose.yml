@@ -1,0 +1,76 @@
+version: '3.6'  
+services:
+  rabbitmq:
+   image: rabbitmq:3-management
+   ports:
+      # The standard AMQP protocol port
+      - '5672:5672'
+      # HTTP management UI
+      - '15672:15672'
+   networks:
+      - network
+   container_name: rabbitmq
+   restart: 'always'
+
+  sam_wiki:
+   build:
+      context: ./Sam_buscador
+   container_name: sam_wiki
+   networks:
+      - network
+   environment:
+      - RABBITMQ_HOST=rabbitmq
+   depends_on:
+      - rabbitmq
+
+  sam_escritor:
+   build:
+     context: ./Sam_escritor
+   container_name: sam_escribe
+   environment:
+      - RABBITMQ_HOST=rabbitmq
+   depends_on:
+      - rabbitmq   
+   networks:
+      - network
+
+  sam_lector:
+   build:
+     context: ./Sam_lector
+   container_name: sam_lector
+   environment:
+      - RABBITMQ_HOST=rabbitmq
+   depends_on:
+      - rabbitmq
+   ports:
+      - 3000:3000   
+   networks:
+      - network
+
+  sam_traductor:
+   build:
+      context: ./Sam_traductor
+   container_name: sam_traductor
+   networks:
+      - network
+   environment:
+      - RABBITMQ_HOST=rabbitmq
+   depends_on:
+      - rabbitmq
+
+
+      
+  sam_calendario:
+   build:
+     context: ./Sam_calendario
+   container_name: sam_calendario
+   networks:
+      - network
+   environment:
+      - RABBITMQ_HOST=rabbitmq
+   depends_on:
+      - rabbitmq
+     
+
+networks:
+  network: {}
